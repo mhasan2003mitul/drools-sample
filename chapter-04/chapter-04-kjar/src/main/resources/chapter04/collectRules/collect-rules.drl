@@ -1,0 +1,16 @@
+package chapter04.collectRules
+
+import org.drools.devguide.eshop.model.Order
+import java.util.List
+import java.util.ArrayList
+
+declare ListOfOrder
+    listOfOrder:List;
+end
+
+rule "Grouping orders" enabled true
+    when
+      $list: List() from collect(Order())
+    then
+      System.out.println("we've found " + $list.size() + " orders");
+end

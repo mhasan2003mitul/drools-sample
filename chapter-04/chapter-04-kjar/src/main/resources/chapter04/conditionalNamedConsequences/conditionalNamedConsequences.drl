@@ -1,0 +1,13 @@
+package chapter04.conditionalNamedConsequences;
+dialect  "mvel"
+
+rule "A and B Combined"
+    when
+        s: String(this == "A")
+        do [aCase]
+        i:Integer(intValue > 2)
+    then
+        System.out.println("Integer: "+i);
+    then [aCase]
+        System.out.println("String: "+s);
+end
